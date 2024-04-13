@@ -20,7 +20,7 @@ function ctrl_c(){
 }
 function install_commands(){
     echo -e "${CYAN}>>>>> Installing package: ${green}$package ${CYAN}<<<<<${reset}"
-    sudo apt update && sudo apt install -y $package
+    sudo apt update && sudo dnf install -y $package
 }
 
 function check_commands(){
