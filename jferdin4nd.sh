@@ -1,6 +1,6 @@
 #!/bin/bash 
 
 FILENAME=$(date +"%m-%d %H:%M")
-cd ~/jferdin4nd
-echo "$FILENAME $(git pull)" >> ~/jferdin4nd.log
+cd /home/shiva/jferdin4nd/
+echo "$FILENAME $(git pull)" >> /home/shiva/jferdin4nd.log
 
