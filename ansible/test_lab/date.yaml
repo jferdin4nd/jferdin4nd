@@ -1,0 +1,15 @@
+---
+- name: Pruebas con WHEN
+  hosts: lab
+
+  tasks: 
+  - name: Capturar fecha
+    shell:
+      cmd: date
+    register: fecha
+    when: ansible_distribution=='Fedora'
+
+  - name: Visualizar fecha
+    ansible.builtin.debug:
+      msg: "{{fecha.stdout}}"
+    when: ansible_distribution=='Fedora'

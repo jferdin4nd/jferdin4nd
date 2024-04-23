@@ -1,0 +1,54 @@
+---
+- name: Ejemplos de varios filtros
+  hosts: lab
+  vars:
+       cadena: "hola"
+       numero: 10
+       verdad: true
+       lista:
+          - pepe
+          - juan
+          - antonio
+       lista1: ['pepe','juan','antonio']
+       diccionario:
+            nombre: juan
+            edad: 27
+
+  tasks:
+
+#   - name: Convertir cadena
+#     ansible.builtin.debug:
+#       var: numero
+
+#   - name: Convertir cadena
+#     ansible.builtin.debug:
+#       var: numero | string
+
+#   - name: Convertir cadena a booleano
+#     ansible.builtin.debug:
+#       var: numero | bool
+
+#   - name: Convertir cadena a entero
+#     ansible.builtin.debug:
+#       var: numero | int
+
+  - name: Convertir cadena
+    ansible.builtin.debug:
+      msg: "{{ansible_facts['distribution_version']}}"
+ 
+  - name: Convertir cadena
+    ansible.builtin.debug:
+      msg: "{{ansible_facts['default_ipv4']}}"
+
+  - name: Convertir cadena
+    ansible.builtin.debug:
+      msg: "{{ansible_facts['distribution_release']}}"
+
+  - name: Convertir cadena
+    ansible.builtin.debug:
+      msg: "{{ansible_facts['kernel']}}"
+
+#   - name: Convertir cadena
+#     ansible.builtin.debug:
+#       var: ansible_facts
+      

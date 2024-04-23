@@ -1,0 +1,37 @@
+---
+- name: Trabajar con TAGS
+  hosts: all
+
+  tasks:
+
+  - name: Preparar desarollo
+    ansible.builtin.debug:
+      msg: Preparar el entorno de desarollo.
+    tags:
+      - desarollo
+
+  - name: Preparar producción
+    ansible.builtin.debug:
+      msg: Prepara entorno de producción
+    tags:
+      - produccion
+  
+  - name: Instalar MySQL
+    ansible.builtin.debug:
+      msg: Instalando MySQL
+    tags:
+      - desarollo
+      - produccion
+
+  - name: Instalando herramientas de desarollo
+    ansible.builtin.debug:
+      msg: Instalando herramientas de dev
+    tags:
+      - desarollo
+
+  - name: Desplegar aplicación
+    ansible.builtin.debug:
+      tags:
+        - desarollo
+        - produccion
+    

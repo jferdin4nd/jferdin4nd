@@ -1,0 +1,39 @@
+--- # Install zsh
+- hosts: lab
+  become: true
+  tasks:
+    - name: Update.
+      ansible.builtin.apt:
+        upgrade: dist
+ 
+    - name: Copy a file
+      ansible.builtin.copy:
+        src: ~/ansible/chata.txt
+        dest: /home/krishna/
+        owner: krishna  
+        group: krishna
+        mode: '0644'
+
+    # - name: Install zsh
+    #   ansible.builtin.apt:
+    #     pkg:
+    #     - zsh
+    #     - nmap
+    #     - htop
+    #     - btop
+    #     - tmux
+    #     - links2
+    #     update_cache: yes
+
+    # - name: Autoclean
+    #   ansible.builtin.apt:
+    #     autoclean: yes
+
+    # - name: Autoremove
+    #   ansible.builtin.apt:
+    #     autoremove: yes
+    #     purge: yes
+
+    # - name: Reboot
+    #   ansible.builtin.reboot:
+    

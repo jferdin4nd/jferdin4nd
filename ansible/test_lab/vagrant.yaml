@@ -1,0 +1,28 @@
+---
+- name: Install Vagrant
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install required packages
+      apt:
+        name: "{{ packages }}"
+        state: latest
+      vars:
+        packages:
+          - software-properties-common
+
+    - name: Add Vagrant's official repository
+      apt_repository:
+        repo: "deb https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        state: present
+
+    - name: Install Vagrant
+      apt:
+        name: vagrant
+        state: latest
+        update_cache: yes
